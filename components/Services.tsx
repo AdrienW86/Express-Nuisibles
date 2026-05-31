@@ -118,7 +118,7 @@ export default function Services() {
             href="tel:0743260451" 
             className="w-full md:w-auto bg-action-primary hover:bg-action-hover text-slate-950 font-black px-6 py-3.5 rounded-xl text-center shadow-md transition-colors shrink-0 whitespace-nowrap"
           >
-            Demander un diagnostic au 07 43 26 04 51
+            Demander un diagnostic
           </a>
         </div>
 
