@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  /* Bleu nuit institutionnel (Confiance, propreté) */
+  --color-brand-dark: #0f172a;
+  --color-brand-navy: #1e293b;
+  
+  /* Jaune/Orange d'urgence (Boutons d'action, appels) */
+  --color-action-primary: #fbbf24;
+  --color-action-hover: #f59e0b;
+  
+  /* Vert éco/sécurité (Certibiocide) */
+  --color-safeguard: #10b981;
+}
+
+body {
+  background-color: #f8fafc; /* slate-50 */
+  color: #0f172a;            /* slate-900 */
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Ajuste les 120px selon la hauteur réelle de ta navbar + topbar */
+  scroll-padding-top: 120px; 
+}
