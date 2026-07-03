@@ -1,59 +1,44 @@
-import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, phone, email, city, nuisible, message } = body;
+    const { name, email, phone, city, subject, message } = body;
 
-    // Configuration SMTP Hostinger
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.hostinger.com',
-      port: 465,
-      secure: true, // true pour port 465
-      auth: {
-        user: process.env.SMTP_USER, // Votre email pro (ex: contact@express-nuisibles.fr)
-        pass: process.env.SMTP_PASS, // Le mot de passe de cet email
-      },
+    if (!name || !email || !phone || !message) {
+      return NextResponse.json({ message: "Champs requis manquants" }, { status: 400 });
+    }
+
+    const { data, error } = await resend.emails.send({
+      // Utilisation des variables d'environnement
+      from: process.env.EMAIL_FROM || "Nuisible Nantes <contact@nuisible-nantes.fr>",
+      to: process.env.EMAIL_TO || "contact@nuisible-nantes.fr", 
+      replyTo: email,
+      subject: `🚨 Nouvelle demande : ${subject || 'Rappel Site'}`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; padding: 24px; border-radius: 12px;">
+          <h2 style="color: #0056b3; margin-bottom: 20px; font-weight: 900;">🔥 Nouveau Contact - Nuisibles Nantes</h2>
+          
+          <div style="background-color: #f8fafc; padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+            <p style="margin: 4px 0;"><strong>Client :</strong> ${name}</p>
+            <p style="margin: 4px 0;"><strong>Téléphone :</strong> <a href="tel:${phone}" style="color: #0056b3; font-weight: bold;">${phone}</a></p>
+            <p style="margin: 4px 0;"><strong>Email :</strong> ${email}</p>
+            <p style="margin: 4px 0;"><strong>Ville :</strong> ${city || 'Non renseignée'}</p>
+          </div>
+
+          <h3 style="color: #0f172a; margin-top: 0;">Message :</h3>
+          <p style="color: #334155; line-height: 1.6; background-color: #fff; border-left: 4px solid #0056b3; padding-left: 12px;">${message}</p>
+        </div>
+      `,
     });
 
-    // Envoi du mail
-   // ... imports et config du transporter ...
+    if (error) return NextResponse.json({ message: error.message }, { status: 400 });
+    return NextResponse.json({ message: "Envoyé avec succès" }, { status: 200 });
 
-await transporter.sendMail({
-  from: `"Devis Express Nuisibles" <${process.env.SMTP_USER}>`,
-  to: process.env.SMTP_USER,
-  subject: `📩 Nouveau Lead : ${nuisible.toUpperCase()} - ${name}`,
-  html: `
-    <div style="font-family: sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-      <div style="background-color: #0f172a; padding: 20px; text-align: center;">
-        <h2 style="color: #ffffff; margin: 0;">Express Nuisibles</h2>
-      </div>
-      <div style="padding: 20px;">
-        <h3 style="color: #059669;">Nouvelle demande de devis</h3>
-        <p>Une nouvelle demande a été soumise sur votre site :</p>
-        <table style="width: 100%; border-collapse: collapse;">
-          <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Nom :</strong></td><td style="padding: 8px;">${name}</td></tr>
-          <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Téléphone :</strong></td><td style="padding: 8px;"><a href="tel:${phone}" style="color: #059669; font-weight: bold;">${phone}</a></td></tr>
-          <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Email :</strong></td><td style="padding: 8px;">${email || 'Non précisé'}</td></tr>
-          <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Ville :</strong></td><td style="padding: 8px;">${city}</td></tr>
-          <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Service :</strong></td><td style="padding: 8px;">${nuisible}</td></tr>
-        </table>
-        <div style="margin-top: 20px; padding: 15px; background-color: #f8fafc; border-radius: 8px;">
-          <strong>Message du client :</strong>
-          <p style="font-style: italic;">"${message}"</p>
-        </div>
-      </div>
-      <div style="background-color: #f1f5f9; padding: 15px; text-align: center; font-size: 12px; color: #64748b;">
-        Ceci est une notification automatique de votre site web.
-      </div>
-    </div>
-  `,
-});
-
-    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Erreur d'envoi SMTP :", error);
-    return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });
+    return NextResponse.json({ message: "Erreur serveur" }, { status: 500 });
   }
 }
