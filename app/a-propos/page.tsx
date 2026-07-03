@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "À Propos | Express Nuisibles Services Perpignan",
-  description: "Découvrez l'histoire d'Express Nuisibles Services. Grégory, expert certifié Certibiocide, intervient à Perpignan et dans tout le 66 pour éliminer rats, souris et insectes.",
+  description: "Express Nuisibles Services. Expert certifié Certibiocide, intervient à Perpignan et dans tout le 66 pour éliminer rats, souris et insectes.",
   alternates: {
     canonical: "https://express-nuisibles.fr/a-propos",
   },
@@ -57,14 +57,14 @@ export default function AboutPage() {
         {/* Section : Notre Histoire & Philosophie */}
         <section className="bg-white border border-slate-200/60 rounded-3xl p-6 md:p-10 shadow-sm mb-12" aria-labelledby="story-title">
           <h2 id="story-title" className="text-xl md:text-2xl font-black text-slate-950 flex items-center gap-2.5 mb-4">
-            L&apos;histoire de l&apos;entreprise
+            L'histoire de l'entreprise
           </h2>
           <div className="space-y-4 text-sm md:text-base text-slate-600 font-medium leading-relaxed">
             <p>
-              Fondée par <strong>Grégory</strong>, Express Nuisibles est née d&apos;un constat simple : face à une invasion de rats, de punaises de lit ou de frelons, les clients ont besoin d&apos;une écoute humaine, d&apos;une transparence totale sur les tarifs et surtout, d&apos;une efficacité immédiate.
+              Express Nuisibles est née d'un constat simple : face à une invasion de rats, de punaises de lit ou de frelons, les clients ont besoin d'une écoute humaine, d'une transparence totale sur les tarifs et surtout, d'une efficacité immédiate.
             </p>
             <p>
-              Contrairement aux grands groupes nationaux aux plateformes téléphoniques impersonnelles, vous êtes ici en ligne directe avec le technicien qui interviendra chez vous. Cette proximité nous permet de vous proposer des conseils sur-mesure et un suivi rigoureux jusqu&apos;à l&apos;extinction complète du problème.
+              Contrairement aux grands groupes nationaux aux plateformes téléphoniques impersonnelles, vous êtes ici en ligne directe avec le technicien qui interviendra chez vous. Cette proximité nous permet de vous proposer des conseils sur-mesure et un suivi rigoureux jusqu&'à l'extinction complète du problème.
             </p>
           </div>
         </section>
@@ -74,7 +74,7 @@ export default function AboutPage() {
           <h2 id="values-title" className="text-xl md:text-2xl font-black text-slate-950 flex items-center gap-2.5 mb-2">
             Pourquoi nous faire confiance ?
           </h2>
-          <p className="text-slate-400 font-semibold text-xs uppercase tracking-wider mb-8">Les garanties d&apos;un travail professionnel bien fait</p>
+          <p className="text-slate-400 font-semibold text-xs uppercase tracking-wider mb-8">Les garanties d'un travail professionnel bien fait</p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="flex gap-4">
@@ -84,7 +84,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="font-black text-slate-950 text-base mb-1">Agrément Certibiocide</h3>
                 <p className="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">
-                  Détenteur du certificat officiel délivré par le Ministère de la Transition Écologique, garantissant l&apos;utilisation sûre et raisonnée des produits professionnels.
+                  Détenteur du certificat officiel délivré par le Ministère de la Transition Écologique, garantissant l'utilisation sûre et raisonnée des produits professionnels.
                 </p>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="font-black text-slate-950 text-base mb-1">Intervention sous 24h</h3>
                 <p className="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">
-                  Parce que la prolifération n&apos;attend pas, nous nous engageons à intervenir rapidement à votre domicile ou dans vos locaux professionnels 6 jours sur 7.
+                  Parce que la prolifération n'attend pas, nous nous engageons à intervenir rapidement à votre domicile ou dans vos locaux professionnels 6 jours sur 7.
                 </p>
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="font-black text-slate-950 text-base mb-1">Ancrage 100% Local</h3>
                 <p className="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">
-                  Basés à Perpignan, nous intervenons dans l&apos;ensemble de la plaine du Roussillon, de la côte Vermeille jusqu&apos;aux contreforts des Pyrénées (66).
+                  Basés à Perpignan, nous intervenons dans l'ensemble de la plaine du Roussillon, de la côte Vermeille jusqu'aux contreforts des Pyrénées (66).
                 </p>
               </div>
             </div>
@@ -120,7 +120,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="font-black text-slate-950 text-base mb-1">Résultat 100% Garanti</h3>
                 <p className="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">
-                  Chaque traitement s&apos;accompagne d&apos;un protocole de contrôle. Si le nuisible persiste après notre passage prévu, nous revenons gratuitement.
+                  Chaque traitement s'accompagne d'un protocole de contrôle. Si le nuisible persiste après notre passage prévu, nous revenons gratuitement.
                 </p>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function AboutPage() {
 
         {/* Section Zone Géographique Rapide */}
         <div className="bg-slate-900 border border-slate-800 text-white rounded-3xl p-6 md:p-8 text-center mb-12">
-          <p className="text-emerald-400 text-xs font-black uppercase tracking-widest mb-2">Secteur d&apos;intervention</p>
+          <p className="text-emerald-400 text-xs font-black uppercase tracking-widest mb-2">Secteur d'intervention</p>
           <h3 className="text-lg md:text-xl font-black mb-3">Une urgence dans les Pyrénées-Orientales ?</h3>
           <p className="text-xs md:text-sm text-slate-300 font-medium max-w-xl mx-auto leading-relaxed mb-4">
             Nous couvrons Perpignan, Canet-en-Roussillon, Saint-Estève, Rivesaltes, Cabestany, Argeles-sur-Mer, Thuir, Elne et les communes environnantes.
@@ -144,10 +144,10 @@ export default function AboutPage() {
         {/* Boutons de redirection finaux */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
           <a 
-            href="tel:0600000000" // Remplacer par le vrai numéro de Grégory
+            href="tel:0743260451" 
             className="w-full sm:w-auto inline-flex items-center justify-center bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-black text-base px-8 py-4 rounded-2xl shadow-md transition-all active:scale-95"
           >
-            Appeler Grégory
+            Appeler Maintenant
           </a>
           <Link 
             href="/contact"

@@ -135,7 +135,7 @@ export default function PunaisesDeLitPage() {
                   desc: "Application d'insecticides professionnels à forte rémanence. Ce traitement élimine instantanément les punaises adultes et nymphes dès qu'elles sortent de leurs cachettes."
                 },
                 {
-                  title: "3. Le protocole d&apos;hygiène client",
+                  title: "3. Le protocole d'hygiène client",
                   desc: "Nous vous remettons des consignes strictes (lavage du linge à 60°C ou passage au congélateur, mise sous housse hermétique) pour sécuriser l'action de notre traitement."
                 },
                 {

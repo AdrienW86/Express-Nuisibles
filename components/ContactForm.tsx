@@ -16,15 +16,30 @@ export default function ContactForm() {
   ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // TODO: Intègre ton API de soumission ici (ex: Resend, Formspree, ou une Route API Supabase/Next.js)
-    await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulation d'envoi
+  const formData = new FormData(e.currentTarget);
+  const data = Object.fromEntries(formData.entries());
 
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      setIsSuccess(true);
+    } else {
+      alert("Une erreur est survenue lors de l'envoi.");
+    }
+  } catch (err) {
+    alert("Impossible de joindre le serveur.");
+  } finally {
     setIsSubmitting(false);
-    setIsSuccess(true);
-  };
+  }
+};
 
   return (
     <section id="devis" className="w-full bg-slate-50 py-16 px-4 border-t border-slate-200">
@@ -34,13 +49,13 @@ export default function ContactForm() {
         <div className="md:col-span-5 space-y-6">
           <div>
             <span className="text-emerald-600 text-xs font-black uppercase tracking-wider bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full">
-              Gratuit & Sans Engagement
+              Gratuit et Sans Engagement
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight mt-3">
               Demandez votre devis express
             </h2>
             <p className="text-slate-600 text-sm md:text-base mt-2 font-medium leading-relaxed">
-              Une urgence ou besoin d&apos;une intervention préventive ? Remplissez ce formulaire. Grégory vous rappelle sous 2 heures avec une estimation claire.
+              Une urgence ou besoin d'une intervention préventive ? Remplissez ce formulaire. nous vous rappellerons sous 2 heures avec une estimation claire.
             </p>
           </div>
 
@@ -78,7 +93,7 @@ export default function ContactForm() {
             </div>
             <div className="text-center sm:text-left">
               <p className="text-xs font-bold text-amber-400 uppercase tracking-wider">Invasion critique ?</p>
-              <p className="text-sm text-slate-300 font-medium">Ne restez pas dans l&apos;angoisse, appelez directement :</p>
+              <p className="text-sm text-slate-300 font-medium">Ne restez pas dans l'angoisse, appelez directement :</p>
               <a href="tel:0743260451" className="text-lg font-black hover:text-amber-400 transition-colors">
                 07 43 26 04 51
               </a>

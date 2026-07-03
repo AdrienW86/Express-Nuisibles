@@ -61,7 +61,7 @@ export default function GuepesFrelonsPage() {
               </span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed mb-8">
-              Activité suspecte sous une tuile, nid visible dans un arbre ou une boîte aux lettres ? Ne prenez aucun risque d&apos;attaque. Grégory intervient sous 24h avec le matériel de protection et de traitement adapté.
+              Activité suspecte sous une tuile, nid visible dans un arbre ou une boîte aux lettres ? Ne prenez aucun risque d'attaque. Nous intervenons sous 24h avec le matériel de protection et de traitement adapté.
             </p>
 
             {/* Bannière Image Unique - Parfaitement intégrée au scroll */}
